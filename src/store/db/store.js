@@ -52,6 +52,38 @@ const actions = {
         })
   
     },
+
+    loginUser(context,data) {
+        return new Promise((resolve, reject) => {
+            axios.post('/loginUser', {
+                id_no:data.id_no,
+                password:data.password
+            })
+            .then(response => {
+                resolve(response.data)
+            }).catch(err => {
+                console.log(err)
+                reject(err)
+            })
+        })
+  
+    },
+
+    setUserPassword(context,data) {
+        return new Promise((resolve, reject) => {
+            axios.post('/setPassword', {
+                id_no:data.id_no,
+                password:data.password
+            })
+            .then(response => {
+                resolve(response.data)
+            }).catch(err => {
+                console.log(err)
+                reject(err)
+            })
+        })
+  
+    },
     
 
 

@@ -44,6 +44,9 @@ export default {
                     this.message = 'User not found'
                 }
             })
+            .catch(err => {
+                console.log(err)
+            });
             
         },
         setGlobalId(){

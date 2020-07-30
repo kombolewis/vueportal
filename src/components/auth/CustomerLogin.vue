@@ -36,9 +36,10 @@ export default {
                 if(data.status == '02'){ //user is using otp redirect to setpassword
                     let id_no = this.id_no
                     this.$router.push({name:'SetPassword', params:{id_no}})
-                }else if(data){ //returning user
+                }else if(data.status == '22'){ //returning user
+                    this.$router.push({name:'Home'})
+                }else{
                     console.log(data)
-                    this.$router.push({name:'Dashboard'})
                 }
             })
             .catch(err => {

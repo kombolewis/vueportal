@@ -45,11 +45,9 @@ export default {
                     id_no:this.id_no
                 })
                 .then(data => {
-                    if(data){ //send to Dashboard
+                    if(data.status == '22'){ //send to Dashboard
                         console.log(data)
-                        this.$router.push({name:'Dashboard'})
-                    }else{
-                        console.log('ele')
+                        this.$router.push({name:'Home'})
                     }
                 })
                 .catch(err => {

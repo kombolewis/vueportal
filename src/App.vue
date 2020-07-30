@@ -1,8 +1,16 @@
-<template>
-  <div id="app">
-    <router-view/>
-  </div>
+<template lang="pug">
+  #app
+    
+    Navbar
+    router-view
+    
 </template>
 
-<style>
-</style>
+<script>
+import Navbar from './components/Navbar'
+export default {
+  components:{
+    Navbar,
+  }
+}
+</script>

@@ -14,6 +14,15 @@ module.exports = {
         .use('sass-loader')
           .loader('sass-loader')
           .end()
-    }
+
+      // css loader
+        .rule('css')
+        .test(/\.css$/i)
+        .use('css-loader')
+          .loader('css-loader')
+          .end()
+        
+    },
+    runtimeCompiler: true
   }
   

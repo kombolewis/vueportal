@@ -3,8 +3,8 @@
 
     div(v-if="getAllAccounts.money_market.length > 0")
       .row.mb-2.mt-4
-          .col-md-6
-              div Money Market Accounts
+        .col-md-6
+          div Money Market Accounts
       hr
       br 
       .row.mt-1

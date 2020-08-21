@@ -146,10 +146,40 @@ const actions = {
     },
 
     fetchTransactions(context,data) {
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + state.token
         return new Promise((resolve, reject) => {
             axios.post('/fetchTransactions', {
                 member_no:data.member_no,
                 portfolio:data.portfolio
+            })
+            .then(response => {
+                resolve(response.data)
+            }).catch(err => {
+                reject(err)
+            })
+        })
+    },
+
+    getNav(context, data) {
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + state.token
+        return new Promise((resolve, reject) => {
+            axios.post('/fetchNav', {
+                portfolio:data.portfolio
+            })
+            .then(response => {
+                resolve(response.data)
+            }).catch(err => {
+                reject(err)
+            })
+        })
+    },
+
+    getPDFStatement(context, data) {
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + state.token
+        return new Promise((resolve, reject) => {
+            axios.post('/getPDFStatement', {
+                portfolio:data.portfolio,
+                member_no:data.member_no
             })
             .then(response => {
                 resolve(response.data)

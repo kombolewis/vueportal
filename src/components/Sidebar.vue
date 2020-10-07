@@ -23,7 +23,7 @@ export default {
                 icon: 'fa fa-user'
             },
             {
-                href: {path: '#'},
+                href: {path: '/home/accounts'},
                 title: 'My Accounts',
                 icon: 'fas fa-wallet', 
                 child: [
@@ -33,135 +33,70 @@ export default {
                         icon: 'fas fa-donate'                        
                     },
                     {
-                        href: {path:'#accounts/emergency-fund'},
-                        title: 'Open Emergency Fund',
-                        icon: 'fas fa-donate'
+                        href: {path:'/home/join'},
+                        title: 'Open Account',
+                        icon: 'fas fa-plus-circle' 
                     },
-                    {
-                        href: {path:'#accounts/pension-plan'},
-                        title: 'Open Pension Plan',
-                        icon: 'fas fa-donate'
-                        
-                    },
-                    {
-                        href: {path:'#accounts/fee-plan'},
-                        title: 'Open School Fees Plan',
-                        icon: 'fas fa-donate'
-                        
-
-                    },
-                    {
-                        href: {path:'#accounts/savings-plan'},
-                        title: 'Open Savings Plan',
-                        icon: 'fas fa-donate'
-                        
-
-                    }
                 ]
             },
             {
-                href: {path: '#deposit'},
+                href: {path: '/home/deposit'},
                 title: 'Deposit',
                 icon: 'fas fa-piggy-bank', 
                 child: [
                     {
-                        href: {path:'#deposit/Mpesa'},
-                        title: 'Mpesa Deposit',
+                        href: {path:'/home/deposit'},
+                        title: 'Deposit',
                         icon: 'fas fa-coins' 
                     }, 
-                    {
-                        href: {path:'#deposit/bank'},
-                        title: 'Bank Deposit',
-                        icon: 'fas fa-landmark' 
-                    }, 
-                    {
-                        href: {path:'#deposit/#standing-order'},
-                        title: 'Standing order',
-                        icon: 'fas fa-file-alt',
-                        child: [
-                            {
-                                href: {path:'#deposit/#standing-order/order-form'},
-                                title: 'Standing Order',
-                                icon: 'fas fa-file-invoice-dollar'
-                            },
-                            {
-                                href: {path:'#deposit/#standing-order/automated-payment'},
-                                title: 'Scheduled Automated Payment',
-                                icon: 'fas fa-file-invoice-dollar'
-                            }
-                        ]
-                    }, 
+
                 ]
             },
             {
-                href: {path: '#withdraw'},
+                href: {path: '/home/withdraw'},
                 title: 'Withdraw',
                 icon: 'fas fa-money-check-alt',
                 child: [
                     {
-                        href: {path:'#withdraw/Mpesa'},
-                        title: 'Mpesa Withdrawal',
-                        icon: 'fas fa-coins' 
-                    }, 
-                    {
-                        href: {path:'#withdraw/bank'},
-                        title: 'Bank Withdrawal',
-                        icon: 'fas fa-landmark' 
-                    }, 
-                    {
-                        href: {path:'#deposit/#third-party'},
-                        title: 'Third Party Withdrawal',
+                        href: {path:'/home/withdraw'},
+                        title: 'Withdraw',
                         icon: 'fas fa-money-bill-wave-alt'
                     }, 
                 ]
             },
             {
-                href: {path: '#manage'},
+                href: {path: '/home/update'},
                 title: 'Manage Account',
                 icon: 'fas fa-user-cog', 
                 child: [
                     {
-                        href: {path:'#manage/edit-personal-details'},
-                        title: 'Edit Personal Details',
+                        href: {path:'/home/update'},
+                        title: 'Update Personal Details',
                         icon: 'fas fa-user-edit' 
                     }, 
                     {
-                        href: {path:'#manage/edit-next-kin'},
+                        href: {path:'/home/nextofkin'},
                         title: 'Edit Next of Kin',
                         icon: 'fas fa-edit' 
                     }, 
                     {
-                        href: {path:'#manage/fund-transfer'},
-                        title: 'Third Party Withdrawal',
+                        href: {path:'/home/fundtransfer'},
+                        title: 'Fund Transfer',
                         icon: 'fas fa-file-alt'
-                    }, 
-                   {
-                        href: {path:'#manage/open-account'},
-                        title: 'Open New Account',
-                        icon: 'fas fa-folder-plus', 
-                    }, 
+                    },
                 ]
             },
             {
-                href: {path: '#finance-manager'},
+                href: {path: '/home/calculator'},
                 title: 'Personal Finance Manager',
                 icon: 'fas fa-balance-scale-left', 
                 child: [
                     {
-                        href: {path:'#finance-manager/savings-calculator'},
+                        href: {path:'/home/calculator'},
                         title: 'Savings Calculator',
                         icon: 'fas fa-calculator' 
                     }, 
-                    {
-                        href: {path:'#finance-manager/target-calculator'},
-                        title: 'Savings Target Calculator',
-                        icon: 'fas fa-funnel-dollar' 
-                    }, 
-                    {
-                        href: {path:'#finance-manager/savings-time-calcultor'},
-                        title: 'Savings Time Calculator',
-                        icon: 'far fa-calendar-alt', 
-                    }
+
                 ]
             },
 

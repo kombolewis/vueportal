@@ -17,6 +17,8 @@ locale.use(lang)
 import VueDataTables from 'vue-data-tables'
 Vue.use(VueDataTables)
 
+import VModal from 'vue-js-modal'
+Vue.use(VModal)
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {

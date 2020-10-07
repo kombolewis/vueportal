@@ -1,198 +1,198 @@
 <template lang="pug">
-      .container
-        div
-          .row.mb-2.mt-4
-            .col-md-6
-              b {{parseInt(data.member_no)}} Account Statement 
-          hr
-        div(v-if="records.length > 0")
-          .row.mt-4
-            .col-md-12
-              .d-flex.justify-content-end
-                el-button(type='primary' @click="downloadStatement")
-                  | Download Statement
-                  i.el-icon-download.el-icon-right
-          div(v-if="data.fund == 'Money Market'")
-            .row.mt-1
-              .col-md-12
-                data-tables(style='width:100%' :data='calculateMMFStatement' :pagination-props='{ pageSizes: [7,7,7] }')
+  .container
+    div
+      .row.mb-2.mt-4
+        .col-md-6
+          b {{parseInt(data.member_no)}} Account Statement 
+      hr
+    div(v-if="records.length > 0")
+      .row.mt-4
+        .col-md-12
+          .d-flex.justify-content-end
+            el-button(type='primary' @click="downloadStatement")
+              | Download Statement
+              i.el-icon-download.el-icon-right
+      div(v-if="data.fund == 'Money Market'")
+        .row.mt-1
+          .col-md-12
+            data-tables(style='width:100%' :data='calculateMMFStatement' :pagination-props='{ pageSizes: [7,7,7] }')
 
-                  el-table-column(label='Date')
-                    template(slot-scope='scope')
-                      | {{ scope.row.transDate }}        
+              el-table-column(label='Date')
+                template(slot-scope='scope')
+                  | {{ scope.row.transDate }}        
 
-                  el-table-column(label='Description')
-                    template(slot-scope='scope')
-                      | {{ scope.row.description }}        
+              el-table-column(label='Description')
+                template(slot-scope='scope')
+                  | {{ scope.row.description }}        
 
-                  el-table-column(label='Deposit')
-                    template(slot-scope='scope')
-                      | {{ scope.row.deposit }}         
+              el-table-column(label='Deposit')
+                template(slot-scope='scope')
+                  | {{ scope.row.deposit }}         
 
-                      
-                  el-table-column(label='Withdrawal')
-                    template(slot-scope='scope')
-                      | {{ scope.row.withdrawal }}          
-                    
-                  el-table-column(label='Interest')
-                    template(slot-scope='scope')
-                      | {{ scope.row.interest }}
-
-            .row.mt-4
-              .offset-md-2.col-md-8
-                el-table(:data='calculateMMFSummary' stripe='' style='width: 100%')
-                  el-table-column(prop='deposits' label='Total Deposits')
-                  el-table-column(prop='withdrawals' label='Total Withdrawals')
-                  el-table-column(prop='interest' label='Total Interest')
-                  el-table-column(prop='balance' label='Account Balance')
-
-        
-        
-          div(v-if="data.fund == 'Balanced Fund'") 
-            .row.mt-1
-              .col-md-12
-                data-tables(style='width:100%' :data='calculateBFStatement' :pagination-props='{ pageSizes: [6,6,6] }')
-
-                  el-table-column(label='Date')
-                    template(slot-scope='scope')
-                      | {{ scope.row.transDate }}        
-
-                  el-table-column(label='Description')
-                    template(slot-scope='scope')
-                      | {{ scope.row.description }}        
-
-                  el-table-column(label='Deposit')
-                    template(slot-scope='scope')
-                      | {{ scope.row.amtDeposit }}      
-
-                  el-table-column(label='Units Bought')
-                    template(slot-scope='scope')
-                      | {{ scope.row.unitsBought }}         
-
-                  el-table-column(label='Buying Price')
-                    template(slot-scope='scope')
-                      | {{ scope.row.buyingPrice }}     
-                                 
-                  el-table-column(label='Withdrawal')
-                    template(slot-scope='scope')
-                      | {{ scope.row.withdrawAmt }}       
                   
-                  el-table-column(label='Units Sold')
-                    template(slot-scope='scope')
-                      | {{ scope.row.unitSold }}    
+              el-table-column(label='Withdrawal')
+                template(slot-scope='scope')
+                  | {{ scope.row.withdrawal }}          
+                
+              el-table-column(label='Interest')
+                template(slot-scope='scope')
+                  | {{ scope.row.interest }}
 
-                  el-table-column(label='Selling Price')
-                    template(slot-scope='scope')
-                      | {{ scope.row.sellingPrice }} 
+        .row.mt-4
+          .offset-md-2.col-md-8
+            el-table(:data='calculateMMFSummary' stripe='' style='width: 100%')
+              el-table-column(prop='deposits' label='Total Deposits')
+              el-table-column(prop='withdrawals' label='Total Withdrawals')
+              el-table-column(prop='interest' label='Total Interest')
+              el-table-column(prop='balance' label='Account Balance')
 
-                  el-table-column(label='Gain/(Loss)')
-                    template(slot-scope='scope')
-                      | {{ scope.row.gainLoss }}   
+    
+    
+      div(v-if="data.fund == 'Balanced Fund'") 
+        .row.mt-1
+          .col-md-12
+            data-tables(style='width:100%' :data='calculateBFStatement' :pagination-props='{ pageSizes: [6,6,6] }')
+
+              el-table-column(label='Date')
+                template(slot-scope='scope')
+                  | {{ scope.row.transDate }}        
+
+              el-table-column(label='Description')
+                template(slot-scope='scope')
+                  | {{ scope.row.description }}        
+
+              el-table-column(label='Deposit')
+                template(slot-scope='scope')
+                  | {{ scope.row.amtDeposit }}      
+
+              el-table-column(label='Units Bought')
+                template(slot-scope='scope')
+                  | {{ scope.row.unitsBought }}         
+
+              el-table-column(label='Buying Price')
+                template(slot-scope='scope')
+                  | {{ scope.row.buyingPrice }}     
+                              
+              el-table-column(label='Withdrawal')
+                template(slot-scope='scope')
+                  | {{ scope.row.withdrawAmt }}       
+              
+              el-table-column(label='Units Sold')
+                template(slot-scope='scope')
+                  | {{ scope.row.unitSold }}    
+
+              el-table-column(label='Selling Price')
+                template(slot-scope='scope')
+                  | {{ scope.row.sellingPrice }} 
+
+              el-table-column(label='Gain/(Loss)')
+                template(slot-scope='scope')
+                  | {{ scope.row.gainLoss }}   
+              
+              el-table-column(label='%Gain/(Loss)')
+                template(slot-scope='scope')
+                  | {{ scope.row.gainLossPercentage }}  
+
+        .row.mt-4
+          .col-md-12
+            el-table(:data='calculateBFSummary' stripe='' style='width: 100%')
+              el-table-column(prop='deposits' label='Total Deposits')
+              el-table-column(prop='totalUnitsBought' label='Total Units Bought')
+              el-table-column(prop='withdrawals' label='Total Withdrawals')
+              el-table-column(prop='totalUnitSold' label='Total Units Sold')
+              el-table-column(prop='unitsBalance' label='Unit Balance')
+              el-table-column(prop='currentPrice' label='Current Price')
+              el-table-column(prop='balance' label='Market Value')
+
+      div(v-if="data.fund == 'Zimele Personal Pension Plan'") 
+        .row.mt-1
+          .col-md-12
+            data-tables(style='width:100%' :data='calculatePensionStatement' :pagination-props='{ pageSizes: [6,6,6] }')
+
+              el-table-column(label='Date')
+                template(slot-scope='scope')
+                  | {{ scope.row.transDate }}        
+
+              el-table-column(label='Description')
+                template(slot-scope='scope')
+                  | {{ scope.row.description }}        
+
+              el-table-column(label='Deposit')
+                template(slot-scope='scope')
+                  | {{ scope.row.amtDeposit }}      
+
+              el-table-column(label='Units Bought')
+                template(slot-scope='scope')
+                  | {{ scope.row.unitsBought }}         
+
+              el-table-column(label='Buying Price')
+                template(slot-scope='scope')
+                  | {{ scope.row.buyingPrice }}     
+                              
+              el-table-column(label='Withdrawal')
+                template(slot-scope='scope')
+                  | {{ scope.row.withdrawAmt }}       
+              
+              el-table-column(label='Units Sold')
+                template(slot-scope='scope')
+                  | {{ scope.row.unitSold }}    
+
+              el-table-column(label='Selling Price')
+                template(slot-scope='scope')
+                  | {{ scope.row.sellingPrice }} 
+
+              el-table-column(label='Gain/(Loss)')
+                template(slot-scope='scope')
+                  | {{ scope.row.gainLoss }}   
+              
+              el-table-column(label='%Gain/(Loss)')
+                template(slot-scope='scope')
+                  | {{ scope.row.gainLossPercentage }}  
+
+        .row.mt-4
+          .col-md-12
+            el-table(:data='calculatePensionSummary' stripe='' style='width: 100%')
+              el-table-column(prop='deposits' label='Total Deposits')
+              el-table-column(prop='totalUnitsBought' label='Total Units Bought')
+              el-table-column(prop='withdrawals' label='Total Withdrawals')
+              el-table-column(prop='totalUnitSold' label='Total Units Sold')
+              el-table-column(prop='unitsBalance' label='Unit Balance')
+              el-table-column(prop='currentPrice' label='Current Price')
+              el-table-column(prop='balance' label='Market Value')
+
+      div(v-if="data.fund == 'Zimele Guaranteed Pension Plan' || data.fund == 'Zimele Guaranteed Personal Pension Plan'" ) 
+        .row.mt-1
+          .col-md-12
+            data-tables(style='width:100%' :data='calculateZGPPStatement' :pagination-props='{ pageSizes: [7,7,7] }')
+
+              el-table-column(label='Date')
+                template(slot-scope='scope')
+                  | {{ scope.row.transDate }}        
+
+              el-table-column(label='Description')
+                template(slot-scope='scope')
+                  | {{ scope.row.description }}        
+
+              el-table-column(label='Deposit')
+                template(slot-scope='scope')
+                  | {{ scope.row.deposit }}         
+
                   
-                  el-table-column(label='%Gain/(Loss)')
-                    template(slot-scope='scope')
-                      | {{ scope.row.gainLossPercentage }}  
+              el-table-column(label='Withdrawal')
+                template(slot-scope='scope')
+                  | {{ scope.row.withdrawal }}          
+                
+              el-table-column(label='Interest')
+                template(slot-scope='scope')
+                  | {{ scope.row.interest }}
 
-            .row.mt-4
-              .col-md-12
-                el-table(:data='calculateBFSummary' stripe='' style='width: 100%')
-                  el-table-column(prop='deposits' label='Total Deposits')
-                  el-table-column(prop='totalUnitsBought' label='Total Units Bought')
-                  el-table-column(prop='withdrawals' label='Total Withdrawals')
-                  el-table-column(prop='totalUnitSold' label='Total Units Sold')
-                  el-table-column(prop='unitsBalance' label='Unit Balance')
-                  el-table-column(prop='currentPrice' label='Current Price')
-                  el-table-column(prop='balance' label='Market Value')
-
-          div(v-if="data.fund == 'Zimele Personal Pension Plan'") 
-            .row.mt-1
-              .col-md-12
-                data-tables(style='width:100%' :data='calculatePensionStatement' :pagination-props='{ pageSizes: [6,6,6] }')
-
-                  el-table-column(label='Date')
-                    template(slot-scope='scope')
-                      | {{ scope.row.transDate }}        
-
-                  el-table-column(label='Description')
-                    template(slot-scope='scope')
-                      | {{ scope.row.description }}        
-
-                  el-table-column(label='Deposit')
-                    template(slot-scope='scope')
-                      | {{ scope.row.amtDeposit }}      
-
-                  el-table-column(label='Units Bought')
-                    template(slot-scope='scope')
-                      | {{ scope.row.unitsBought }}         
-
-                  el-table-column(label='Buying Price')
-                    template(slot-scope='scope')
-                      | {{ scope.row.buyingPrice }}     
-                                 
-                  el-table-column(label='Withdrawal')
-                    template(slot-scope='scope')
-                      | {{ scope.row.withdrawAmt }}       
-                  
-                  el-table-column(label='Units Sold')
-                    template(slot-scope='scope')
-                      | {{ scope.row.unitSold }}    
-
-                  el-table-column(label='Selling Price')
-                    template(slot-scope='scope')
-                      | {{ scope.row.sellingPrice }} 
-
-                  el-table-column(label='Gain/(Loss)')
-                    template(slot-scope='scope')
-                      | {{ scope.row.gainLoss }}   
-                  
-                  el-table-column(label='%Gain/(Loss)')
-                    template(slot-scope='scope')
-                      | {{ scope.row.gainLossPercentage }}  
-
-            .row.mt-4
-              .col-md-12
-                el-table(:data='calculatePensionSummary' stripe='' style='width: 100%')
-                  el-table-column(prop='deposits' label='Total Deposits')
-                  el-table-column(prop='totalUnitsBought' label='Total Units Bought')
-                  el-table-column(prop='withdrawals' label='Total Withdrawals')
-                  el-table-column(prop='totalUnitSold' label='Total Units Sold')
-                  el-table-column(prop='unitsBalance' label='Unit Balance')
-                  el-table-column(prop='currentPrice' label='Current Price')
-                  el-table-column(prop='balance' label='Market Value')
-
-          div(v-if="data.fund == 'Zimele Guaranteed Pension Plan' || data.fund == 'Zimele Guaranteed Personal Pension Plan'" ) 
-            .row.mt-1
-              .col-md-12
-                data-tables(style='width:100%' :data='calculateZGPPStatement' :pagination-props='{ pageSizes: [7,7,7] }')
-
-                  el-table-column(label='Date')
-                    template(slot-scope='scope')
-                      | {{ scope.row.transDate }}        
-
-                  el-table-column(label='Description')
-                    template(slot-scope='scope')
-                      | {{ scope.row.description }}        
-
-                  el-table-column(label='Deposit')
-                    template(slot-scope='scope')
-                      | {{ scope.row.deposit }}         
-
-                      
-                  el-table-column(label='Withdrawal')
-                    template(slot-scope='scope')
-                      | {{ scope.row.withdrawal }}          
-                    
-                  el-table-column(label='Interest')
-                    template(slot-scope='scope')
-                      | {{ scope.row.interest }}
-
-            .row.mt-4
-              .offset-md-2.col-md-8
-                el-table(:data='calculateZGPPSummary' stripe='' style='width: 100%')
-                  el-table-column(prop='deposits' label='Total Deposits')
-                  el-table-column(prop='withdrawals' label='Total Withdrawals')
-                  el-table-column(prop='interest' label='Total Interest')
-                  el-table-column(prop='balance' label='Account Balance')
+        .row.mt-4
+          .offset-md-2.col-md-8
+            el-table(:data='calculateZGPPSummary' stripe='' style='width: 100%')
+              el-table-column(prop='deposits' label='Total Deposits')
+              el-table-column(prop='withdrawals' label='Total Withdrawals')
+              el-table-column(prop='interest' label='Total Interest')
+              el-table-column(prop='balance' label='Account Balance')
 
                  
 

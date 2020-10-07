@@ -4,7 +4,7 @@
     div(v-if="getAllAccounts.money_market.length > 0")
       .row.mb-2.mt-4
         .col-md-6
-          div Money Market Accounts
+         | Money Market Accounts
       hr
       br 
       .row.mt-1
@@ -37,7 +37,7 @@
     div(v-if="getAllAccounts.pension.length > 0")
       .row.mb-2.mt-4
           .col-md-6
-              div Pension Accounts
+           | Pension Accounts
       hr
       br 
       .row.mt-1

@@ -9,6 +9,13 @@ import Logout from '../components/auth/Logout'
 import Dashboard from '../components/Dashboard'
 import Accounts from '../components/accounts/Accounts'
 import Statements from '../components/accounts/Statements'
+import Join from '../components/accounts/forms/Join'
+import Withdraw from '../components/accounts/forms/Withdraw'
+import Deposit from '../components/accounts/forms/Deposit'
+import Update from '../components/accounts/forms/Update'
+import FundTransfer from '../components/accounts/forms/FundTransfer'
+import NextOfKin from '../components/accounts/forms/NextOfKin'
+import Calculator from '../components/accounts/forms/Calculator'
 
 
 
@@ -85,6 +92,41 @@ Vue.use(VueRouter)
         component: Statements,
         props:true,
 
+      },
+      {
+        path: 'join',
+        name: 'Join',
+        component: Join,
+      },
+      {
+        path: 'withdraw',
+        name: 'Withdraw',
+        component: Withdraw,
+      },
+      {
+        path: 'deposit',
+        name: 'Deposit',
+        component: Deposit,
+      },
+      {
+        path: 'update',
+        name: 'Update',
+        component: Update,
+      },
+      {
+        path: 'nextofkin',
+        name: 'NextOfKin',
+        component: NextOfKin,
+      },
+      {
+        path: 'fundtransfer',
+        name: 'FundTransfer',
+        component: FundTransfer,
+      },
+      {
+        path: 'calculator',
+        name: 'Calculator',
+        component: Calculator,
       },
     ],
     meta:{

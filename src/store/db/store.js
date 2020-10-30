@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'http://192.168.100.20:8000/api'
-axios.defaults.baseURL = 'https://kombolewis.com/api'
+axios.defaults.baseURL = 'http://192.168.100.20:8000/api'
+
 
 
 

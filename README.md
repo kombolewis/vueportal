@@ -1,4 +1,7 @@
 # vueportal
+```
+This page is running at https://projects.kombolewis.com/portal
+```
 
 ## Project setup
 ```
